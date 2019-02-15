@@ -15,7 +15,7 @@ Only constant extrapolation and odd valued k=1, 3, 5 are supported, and both xv 
 
 On my machine with 12 cores, this function varies between being about the same speed as the scipy function (for small evaluations), to being up to 100x faster (for large evaluations).
 
-While there are other numba based interpolation routines out there (e.g. [this one](https://github.com/EconForge/interpolation.py)), they are not accurate to the domain boundaries for k > 1. For bilinear interpolation, the fitting routine in that package is *much* faster. Times (in milliseconds) for evaluation of a cubic spline are shown below; they are compute from an n by n grid to n^2 evaluation points, on a 12 core machine with two Intel(R) Xeon(R) CPU E5-2643 v3 @ 3.40GHz processors and 128gb of RAM. 
+While there are other numba based interpolation routines out there (e.g. [this one](https://github.com/EconForge/interpolation.py)), they are not accurate to the domain boundaries for k > 1. For bilinear interpolation, the fitting routine in that package is *much* faster. Timings for scipy, fast_splines, and the interpolation package (in milliseconds) for evaluation of a cubic spline are shown below; they are computed from an n by n grid to n^2 evaluation points, on a 12 core machine with two Intel(R) Xeon(R) CPU E5-2643 v3 @ 3.40GHz processors and 128gb of RAM.
 
 | n    | scipy time | fast_splines | interpolation |
 |------|------------|--------------|---------------|
