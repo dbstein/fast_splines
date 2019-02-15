@@ -1,6 +1,6 @@
 # fast_splines: numba accelerated spline evaluation on regular grids in 2D
 
-This code provides a drop-in replacement for the scipy function RectBivariateSpline. Only the code for the evaluation stage is changed, the fitting part is still done using the scipy wrapping of the [dierckx](http://www.netlib.org/dierckx/) package. The knots and coefficients are then extracted, and passed into a numba accelerated port of the relevant functions from dierckx for evaluation. Usage is virtually the same as RectBivariateSpline:
+This code provides a drop-in replacement for the scipy function RectBivariateSpline for uniformly gridded arrays. Only the code for the evaluation stage is changed, the fitting part is still done using the scipy wrapping of the [dierckx](http://www.netlib.org/dierckx/) package. The knots and coefficients are then extracted, and passed into a numba accelerated port of the relevant functions from dierckx for evaluation. Usage is virtually the same as RectBivariateSpline:
 
 ```python
 from fast_splines import interp2d
@@ -9,7 +9,7 @@ interpolater = interp2d(xv, yv, f, k)
 out = interper(xo, yo)
 ```
 
-Only constant extrapolation and odd valued k=1,3,5 are supported.
+Only constant extrapolation and odd valued k=1, 3, 5 are supported, and both xv and yv must be equispaced (at least for now...).
 
 ## Performance
 
